@@ -9,12 +9,15 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index]
   end
 
+  get '/users/:id', to: 'profile#show', as: 'profile'
+
   resources :bookings, only: [] do
     resources :reviews, only: [:new, :create]
   end
 
   resources :reviews, only: [:destroy]
 
-  get '/users/:id', to: 'profile#show'
+
+
 
 end
