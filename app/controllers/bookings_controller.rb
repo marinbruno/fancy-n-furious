@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
-
+  
   # Checkout page
   def create
     @booking = Booking.new(booking_params)
@@ -28,6 +28,10 @@ class BookingsController < ApplicationController
   def edit; end
 
   # edit form
+  def show; end
+
+  def edit; end
+
   def update
     if @booking.update(booking_params)
       redirect_to car_path(@car)
