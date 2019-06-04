@@ -5,13 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cars
-  has_many :car_wishes
-  has_many :bookings
+  has_many :car_wishes, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
 
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :address, presence: true
-  
+
   mount_uploader :photo, PhotoUploader
 end
