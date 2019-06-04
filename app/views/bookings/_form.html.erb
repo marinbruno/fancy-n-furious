@@ -1,0 +1,16 @@
+<div class="container">
+  <%= simple_form for booking do |f| %>
+    <% if @booking.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @booking.errors.full_mesages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.button :submit, class: "btn btn-success" %>
+  <% end %>
+</div>
