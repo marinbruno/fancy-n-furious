@@ -8,6 +8,13 @@ Rails.application.routes.draw do
 
   resources :cars do
     resources :bookings
-    resources :reviews, only: [:index, :create, :destroy]
+    resources :reviews, only: [:index]
   end
+
+  resources :bookings, only: [] do
+    resources :reviews, only: [:new, :create]
+  end
+
+  resources :reviews, only: [:destroy]
+
 end
