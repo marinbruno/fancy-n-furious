@@ -1,0 +1,10 @@
+<h1>Bookingsfor this car </h1>
+<% @booking.each do |booking| %>
+  <li>
+    <%= booking.start_date %>
+    <%= booking.end_date %>
+    <%= booking.total_amount %>
+    <%= booking.user.first_name %>
+  </li>
+<% end %>
+<%= link_to 'Back', cars_path, class: 'btn btn-primary' %>

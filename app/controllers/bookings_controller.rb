@@ -1,11 +1,15 @@
 class BookingsController < ApplicationController
   before_action :set_user
-  before_action :set_car, except: [:index]
+  before_action :set_car
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   # To be displayed inside the car's page.
   def new
     @booking = Booking.new
+  end
+
+  def index
+    @booking = @car.bookings
   end
 
   # Checkout page
@@ -45,7 +49,7 @@ class BookingsController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def set_car

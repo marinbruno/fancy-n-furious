@@ -1,9 +1,9 @@
 <div class="container">
-  <%= simple_form for booking do |f| %>
-    <% if @booking.errors.any? %>
+  <%= simple_form_for([car, booking]) do |f| %>
+    <% if booking.errors.any? %>
       <div class="errors-container">
         <ul>
-          <% @booking.errors.full_mesages.each do |message| %>
+          <% booking.errors.full_mesages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </ul>
@@ -11,6 +11,8 @@
     <% end %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
+    <%= f.input :total_amount %>
     <%= f.button :submit, class: "btn btn-success" %>
   <% end %>
 </div>
+<%= link_to 'Back', cars_path, class: 'btn btn-primary' %>
