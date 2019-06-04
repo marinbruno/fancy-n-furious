@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :create, :destroy]
   end
 
-  get '/users/:id', to: 'profile#show'
+  get '/users/:id', to: 'profile#show', as: 'profile'
 end

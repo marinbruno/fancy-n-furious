@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Fancy n Furious</h1>
+<p> Book your dreams car with facility !!</p>
+
+<%= link_to "See all the cars", cars_path%>
+
+<%= link_to "Sign in", new_user_session_path,
+  class: "btn btn-primary" %>
+
+<%= link_to "Create Account", new_user_registration_path,
+  class: "btn btn-success" %>
+
