@@ -9,7 +9,7 @@ class Car < ApplicationRecord
   validates :brand, presence: true
   validates :year, presence: true, numericality: { only_integer: true }
   validates :car_description, presence: true
-  validates :car_category, presence: true
+  validates :category, presence: true, inclusion: { in: %w[F1 Pimp StockCar Fantasy Cartoon LeMans] }
   validates :daily_amount, presence: true
 
   mount_uploader :photo, PhotoUploader
