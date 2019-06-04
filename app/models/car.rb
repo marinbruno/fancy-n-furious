@@ -1,8 +1,8 @@
 class Car < ApplicationRecord
   belongs_to :user
 
-  has_many :car_wishes
-  has_many :bookings
+  has_many :car_wishes, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
 
   validates :model, presence: true
