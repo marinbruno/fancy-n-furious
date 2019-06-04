@@ -1,0 +1,10 @@
+<h1>All fancy cars's Reviews in here!</h1>
+
+<% @reviews.each do |review| %>
+  <li>
+    <%= review.content %>
+    <%= review.rating %>
+    <%= link_to 'delete', review_path(review.id), method: :delete %>
+  </li>
+<% end %>
+</ul>
