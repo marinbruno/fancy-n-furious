@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
-  
+
   # Checkout page
   def create
     @booking = Booking.new(booking_params)
@@ -24,12 +24,7 @@ class BookingsController < ApplicationController
   # bookings#index page
   def show; end
 
-  # bookings#index page
-  def edit; end
-
   # edit form
-  def show; end
-
   def edit; end
 
   def update
