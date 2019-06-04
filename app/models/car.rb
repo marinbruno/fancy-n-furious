@@ -11,4 +11,6 @@ class Car < ApplicationRecord
   validates :car_description, presence: true
   validates :car_category, presence: true
   validates :daily_amount, presence: true
+
+  mount_uploader :photo, PhotoUploader
 end
