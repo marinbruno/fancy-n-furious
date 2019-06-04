@@ -3,14 +3,12 @@ class BookingsController < ApplicationController
   before_action :set_car, except: [:index]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @booking = Booking.all
-  end
-
   def new
     @booking = Booking.new
   end
 
+
+  # Checkout page
   def create
     @booking = Booking.new(booking_params)
     @booking.user = @user
@@ -23,6 +21,14 @@ class BookingsController < ApplicationController
     end
   end
 
+
+  # bookings#index page
+  def show; end
+
+  # bookings#index page
+  def edit; end
+
+  # edit form
   def show; end
 
   def edit; end
@@ -35,6 +41,7 @@ class BookingsController < ApplicationController
     end
   end
 
+  # booking#show page
   def destroy
     @booking.destroy
 
