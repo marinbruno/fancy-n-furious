@@ -1,0 +1,14 @@
+<%= simple_form_for([booking, review]) do |f| %>
+  <% if review.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :content %>
+  <%= f.input :rating, as: :radio_buttons, collection: [0, 1, 2, 3, 4, 5], wrapper: :vertical_collection_inline %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
