@@ -1,0 +1,12 @@
+
+<h1><strong> Name: </strong><%= @user.first_name %> <%= @user.last_name %></h1>
+
+<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
+<h3> <%= @user.email %> </h3>
+<h3>  <%= @user.address %> </h3>
+<p>  <%= @user.user_description %> </p>
+
+
+
+<%= link_to "Edit your profile", edit_user_registration_path,
+  class: "btn btn-primary" %>
