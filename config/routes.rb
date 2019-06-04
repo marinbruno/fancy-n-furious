@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :cars do
-    resources :bookings
+    resources :bookings, except: [:index]
     resources :reviews, only: [:index, :create, :destroy]
   end
 end

@@ -3,10 +3,10 @@ class BookingsController < ApplicationController
   before_action :set_car, except: [:index]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
-  # To be displayed inside the car's page.
   def new
     @booking = Booking.new
   end
+
 
   # Checkout page
   def create
@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
     end
   end
 
+
   # bookings#index page
   def show; end
 
@@ -28,6 +29,10 @@ class BookingsController < ApplicationController
   def edit; end
 
   # edit form
+  def show; end
+
+  def edit; end
+
   def update
     if @booking.update(booking_params)
       redirect_to car_path(@car)
