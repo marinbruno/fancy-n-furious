@@ -12,5 +12,4 @@ class ProfileController < ApplicationController
     @bookings = current_user.bookings
     @user = current_user
   end
-
 end
