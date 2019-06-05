@@ -13,4 +13,7 @@ class Car < ApplicationRecord
   validates :daily_amount, presence: true
 
   mount_uploader :photo, PhotoUploader
+
+  geocoded_by :car_location
+  after_validation :geocode, if: :will_save_change_to_address?
 end

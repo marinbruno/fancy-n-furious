@@ -14,6 +14,7 @@
   <%= f.input :car_description %>
   <%= f.input :category, collection: %w[F1 Pimp StockCar Fantasy Cartoon LeMans] %>
   <%= f.input :daily_amount %>
+  <%= f.input :car_location %>
   <% unless car.photo.filename.nil? %>
     <%= cl_image_tag car.photo, :height=>145, :width=>300, :crop=>"fill" %>
   <% end %>
