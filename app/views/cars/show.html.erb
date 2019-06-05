@@ -1,1 +1,6 @@
-<%= render 'form', car: @car %>
+<div class="container">
+  <h1><%= @car.model @car.brand %></h1>
+  <%= link_to "Book", new_car_booking_path %>
+  <%= link_to "Add to wishlist!",
+  <%= link_to "Back", cars_path %>
+</div>
