@@ -7,6 +7,16 @@
 <p> Description: <%= @car.car_description %></p>
 <p> Category: <%= @car.category %></p>
 <p> Daily Amount: <%= @car.daily_amount %></p>
+<p> Location: <%= @car.car_location %></p>
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 150px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
+
 <div class="d-flex justify-content-between">
   <%= link_to 'Back', cars_path, class: 'btn btn-primary' %>
   <%= link_to 'Edit', edit_car_path(@car.id), class: 'btn btn-warning' %>

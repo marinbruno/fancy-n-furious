@@ -1,8 +1,17 @@
 <h1>All fancy cars in here!</h1>
 
+<div
+  id="map"
+  style="width: 100%;
+  height: 300px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
+
 <% @cars.each do |car| %>
   <li>
     <%= car.model %>
+    <%= car.brand %>
     <%= link_to 'See details', car_path(car.id) %>
   </li>
 <% end %>

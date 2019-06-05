@@ -6,7 +6,13 @@
 <h3>  <%= @user.address %> </h3>
 <p>  <%= @user.user_description %> </p>
 
-
+<div
+  id="map"
+  style="width: 100%;
+  height: 150px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
 
 <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-primary" %>
 <%= link_to "View Wishes", wishes_path, class: "btn btn-primary" %>
