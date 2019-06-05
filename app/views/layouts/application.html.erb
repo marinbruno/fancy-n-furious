@@ -10,9 +10,10 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <header>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag "/assets/images/logo.jpg" %>
+        <%= image_tag "logo.jpg", width: "50", height: "50" %>
       <% end %>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +37,8 @@
           </li>
         </ul>
       </div>
+    </header>
+
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
