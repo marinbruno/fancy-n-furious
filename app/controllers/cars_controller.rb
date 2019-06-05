@@ -1,6 +1,4 @@
 class CarsController < ApplicationController
-  authorize @car
-
   def index
     @cars = Car.all
   end
