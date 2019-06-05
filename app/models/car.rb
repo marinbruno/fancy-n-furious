@@ -15,5 +15,5 @@ class Car < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   geocoded_by :car_location
-  after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :geocode, if: :will_save_change_to_car_location?
 end
