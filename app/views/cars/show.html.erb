@@ -1,6 +1,21 @@
 <div class="container">
-  <h1><%= @car.model @car.brand %></h1>
-  <%= link_to "Book", new_car_booking_path %>
-  <%= link_to "Add to wishlist!",
-  <%= link_to "Back", cars_path %>
+<h1 class="text-center"><%= @car.model %></h1>
+<% unless @car.photo.filename.nil? %>
+  <%= cl_image_tag @car.photo, :height=>145, :width=>300, :crop=>"fill" %>
+<% end %>
+<h3> Brand: <%= @car.brand %></h3>
+<p> Year: <%= @car.year %></p>
+<p> Description: <%= @car.car_description %></p>
+<p> Category: <%= @car.category %></p>
+<p> Daily Amount: <%= @car.daily_amount %></p>
+<div class="d-flex justify-content-between">
+  <%= link_to 'Back', cars_path, class: 'btn btn-primary' %>
+  <%= link_to 'Edit', edit_car_path(@car.id), class: 'btn btn-warning' %>
+  <% if @user.car_wishes.where(car: @car).size > 0 %>
+    <%= link_to 'Remove from Wish', car_wish_path(id: @user.car_wishes.where(car: @car).first), method: :delete, class: 'btn btn-primary' %>
+  <% else %>
+    <%= link_to 'WishList', car_wishes_path(car_id: @car.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+  <%= link_to 'Book', new_car_booking_path(@car), class: 'btn btn-primary' %>
+  <%= link_to 'Delete', car_path(@car), method: :delete, class: 'btn btn-danger' %>
 </div>
