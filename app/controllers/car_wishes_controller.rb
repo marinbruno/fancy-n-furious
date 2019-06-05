@@ -1,5 +1,5 @@
 class CarWishesController < ApplicationController
-  before_action :set_car
+  before_action :set_car, except: [:destroy]
 
   def index
     @car_wishes = CarWish.all
@@ -10,7 +10,7 @@ class CarWishesController < ApplicationController
   end
 
   def create
-    @car_wish = CarWish.new(car_wish_params)
+    @car_wish = CarWish.new
     @car_wish.user = current_user
     @car_wish.car = @car
 
@@ -22,10 +22,12 @@ class CarWishesController < ApplicationController
   end
 
   def destroy
+
     @car_wish = CarWish.find(params[:id])
+    @car = @car_wish.car
     @car_wish.destroy
 
-    redirect_to cars_path
+    redirect_to car_path(@car)
   end
 
   private

@@ -32,6 +32,7 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+    @user = current_user
   end
 
   def destroy

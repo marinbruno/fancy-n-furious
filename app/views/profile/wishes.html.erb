@@ -1,0 +1,10 @@
+<h1>My wishes</h1>
+<ul>
+<% @wishes.each do |wish| %>
+  <li>
+    <%= link_to wish.car.model, car_path(wish.car_id) %>
+  </li>
+<% end %>
+</ul>
+
+<%= link_to 'Back', profile_path(@user), class: 'btn btn-primary' %>
