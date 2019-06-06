@@ -1,4 +1,11 @@
 class Car < ApplicationRecord
+  include PgSearch
+  pg_search_scope :search_by_all,
+    against: [:model, :brand, :car_description, :year, :category],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   belongs_to :user
 
   has_many :car_wishes, dependent: :destroy

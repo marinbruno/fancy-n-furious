@@ -1,4 +1,10 @@
-<h1>All fancy cars in here!</h1>
+<%= form_tag cars_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control mb-3",
+    placeholder: "Find a car"
+  %>
+<% end %>
 
 <div
   id="map"
@@ -8,18 +14,18 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<div class="container d-flex flex-wrap justify-content-between">
+<div class="container d-flex flex-wrap justify-content-between mt-3">
   <% @cars.each do |car| %>
-    <div class="card" style="width: 18rem;">
-      <%= cl_image_tag car.photo, :height=>145, :width=>300, :crop=>"fill", class: "card-img-top" %>
+    <div class="card mb-3 rounded" style="width: 18rem;">
+      <%= cl_image_tag car.photo, :height=>145, :width=>300, :crop=>"fill", class: "card-img-top m-0" %>
       <div class="card-body">
-        <h5 class="card-title"><%= car.model %></h5>
+        <h5 class="card-title m-0"><%= car.model %></h5>
         <p class="card-text"><%= car.brand %></p>
-        <a href="/cars/<%= car.id %>" class="btn btn-primary">See details</a>
+        <a href="/cars/<%= car.id %>" class="btn btn-dark btn-block">See details</a>
       </div>
     </div>
   <% end %>
 </div>
 
-<%= link_to 'Add you car!', new_car_path, class: "mt-3 btn btn-primary btn-block" %>
+<%= link_to 'Add you car!', new_car_path, class: "mt-3 btn btn-secondary btn-block" %>
 
