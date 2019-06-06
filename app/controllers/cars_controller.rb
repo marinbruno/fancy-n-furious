@@ -5,8 +5,8 @@ class CarsController < ApplicationController
     @markers = @cars.map do |car|
       {
         lat: car.latitude,
-        lng: car.longitude
-        # infoWindow: render_to_string(partial: "infowindow", locals: { car: car })
+        lng: car.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { car: car })
       }
     end
   end
