@@ -1,13 +1,20 @@
 
 
-<h1><strong> Name: </strong><%= @user.first_name %> <%= @user.last_name %></h1>
-<% unless current_user.photo.filename.nil? %>
-<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
-<% end %>
-<h3> Email: <%= @user.email %> </h3>
-<h3> Address: <%= @user.address %> </h3>
-<h4>Description: </h4>
-<p> <%= @user.user_description %> </p>
+
+<div class="d-flex">
+  <div>
+    <% unless current_user.photo.filename.nil? %>
+      <%= cl_image_tag @user.photo, height: 200, radius: 30, width: 200, crop: "fill" %>
+    <% end %>
+  </div>
+  <div class="ml-3">
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <h4> Email: <%= @user.email %> </h4>
+    <h4> Address: <%= @user.address %> </h4>
+    <h5>Description: </h5>
+    <p> <%= @user.user_description %> </p>
+  </div>
+</div>
 
 <div
   id="map"
@@ -16,28 +23,53 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
-<div>
-<h1>My Bookings</h1>
-<ul>
-<% @user.bookings.each do |book| %>
-  <li>
-    Start date: <%= book.start_date %>
-    End date: <%= book.end_date %>
-    Car: <%= link_to book.car.model, car_path(book.car_id) %>
-  </li>
-<% end %>
-</ul>
+<div class = "d-flex mt-3">
+  <!-- Wish -->
+  <div class="flex-fill">
+    <div class="list-group">
+      <h6 class="list-group-item list-group-item-action active">Wish List:</h6>
+      <% if @user.car_wishes.size > 0 %>
+        <% @user.car_wishes.each do |wish| %>
+          <%= link_to wish.car.model, car_path(wish.car_id), class: "list-group-item list-group-item-action" %>
+        <% end %>
+      <% else %>
+        <p>No wishes :(</p>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- bookings -->
+  <div class = "flex-fill ml-3">
+    <ul class="list-group" >
+      <h6 class="list-group-item list-group-item-action active">Bookings:</h6>
+        <% if @user.bookings.size > 0 %>
+          <% @user.bookings.each do |book| %>
+            <li class="list-group-item">
+              From: <%= book.start_date %>
+              To: <%= book.end_date %>
+              Car: <%= link_to book.car.model, car_path(book.car_id) %>
+            </li>
+          <% end %>
+        <% else %>
+          <p>No bookings :(</p>
+        <% end %>
+    </ul>
+  </div>
+
+  <!-- My Cars -->
+  <div class="flex-fill ml-3">
+    <div class="list-group">
+      <h6 class="list-group-item list-group-item-action active">My cars:</h6>
+      <% if @user.cars.size > 0 %>
+        <% @user.cars.each do |car| %>
+          <%= link_to car.model, car_path(car.id), class: "list-group-item list-group-item-action" %>
+        <% end %>
+      <% else %>
+        <p>No Cars :(</p>
+      <% end %>
+    </div>
+  </div>
+
 </div>
 
-<div>
-<h1>My Wish List</h1>
-<ul>
-<% @user.car_wishes.each do |wish| %>
-  <li>
-    <%= link_to wish.car.model, car_path(wish.car_id) %>
-  </li>
-<% end %>
-</ul>
-</div>
-
-<%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-primary" %>
+<%= link_to "Edit profile", edit_user_registration_path, class: "mt-3 btn btn-secondary btn-block" %>
