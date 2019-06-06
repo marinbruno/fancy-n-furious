@@ -1,10 +1,13 @@
 
-<h1><strong> Name: </strong><%= @user.first_name %> <%= @user.last_name %></h1>
 
+<h1><strong> Name: </strong><%= @user.first_name %> <%= @user.last_name %></h1>
+<% unless current_user.photo.filename.nil? %>
 <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
-<h3> <%= @user.email %> </h3>
-<h3>  <%= @user.address %> </h3>
-<p>  <%= @user.user_description %> </p>
+<% end %>
+<h3> Email: <%= @user.email %> </h3>
+<h3> Address: <%= @user.address %> </h3>
+<h4>Description: </h4>
+<p> <%= @user.user_description %> </p>
 
 <div
   id="map"
@@ -13,7 +16,28 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+<div>
+<h1>My Bookings</h1>
+<ul>
+<% @user.bookings.each do |book| %>
+  <li>
+    Start date: <%= book.start_date %>
+    End date: <%= book.end_date %>
+    Car: <%= link_to book.car.model, car_path(book.car_id) %>
+  </li>
+<% end %>
+</ul>
+</div>
+
+<div>
+<h1>My Wish List</h1>
+<ul>
+<% @user.car_wishes.each do |wish| %>
+  <li>
+    <%= link_to wish.car.model, car_path(wish.car_id) %>
+  </li>
+<% end %>
+</ul>
+</div>
 
 <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-primary" %>
-<%= link_to "View Wishes", wishes_path, class: "btn btn-primary" %>
-<%= link_to "View Bookings", bookings_path, class: "btn btn-primary" %>
