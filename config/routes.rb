@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
+  root 'pages#home'
   devise_for :users
-  root to: 'pages#home'
 
   resources :car_wishes, only: [:index, :create, :destroy]
-
 
   resources :cars do
     resources :bookings
@@ -19,5 +18,4 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: [:destroy]
-
 end
