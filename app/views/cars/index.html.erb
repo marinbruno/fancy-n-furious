@@ -8,14 +8,18 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<% @cars.each do |car| %>
-  <li>
-    <%= car.model %>
-    <%= car.brand %>
-    <%= link_to 'See details', car_path(car.id) %>
-  </li>
-<% end %>
+<div class="container d-flex flex-wrap justify-content-between">
+  <% @cars.each do |car| %>
+    <div class="card" style="width: 18rem;">
+      <%= cl_image_tag car.photo, :height=>145, :width=>300, :crop=>"fill", class: "card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= car.model %></h5>
+        <p class="card-text"><%= car.brand %></p>
+        <a href="/cars/<%= car.id %>" class="btn btn-primary">See details</a>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<%= link_to 'Create', new_car_path %>
+<%= link_to 'Add you car!', new_car_path, class: "mt-3 btn btn-primary btn-block" %>
 
-<h5><%= link_to 'Home', root_path %></h5>
