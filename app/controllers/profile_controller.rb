@@ -3,8 +3,9 @@ class ProfileController < ApplicationController
     @user = current_user
 
     @markers = [lat: @user.latitude,
-                lng: @user.longitude
-                # infoWindow: render_to_string(partial: "infowindow", locals: { user: @user })
+                lng: @user.longitude,
+                infoWindow: render_to_string(partial: "infowindow", locals: { user: @user }),
+                image_url: helpers.asset_url('flag.svg')
                ]
   end
 

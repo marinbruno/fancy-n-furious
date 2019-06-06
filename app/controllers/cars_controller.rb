@@ -2,13 +2,18 @@ class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @cars = Car.all
+    if params[:query].present?
+      @cars = Car.search_by_all(params[:query])
+    else
+      @cars = Car.all
+    end
 
     @markers = @cars.map do |car|
       {
         lat: car.latitude,
         lng: car.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { car: car })
+        infoWindow: render_to_string(partial: "infowindow", locals: { car: car }),
+        image_url: helpers.asset_url('flag.svg')
       }
     end
   end
@@ -44,8 +49,9 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @user = current_user
     @markers = [lat: @car.latitude,
-                lng: @car.longitude
-                # infoWindow: render_to_string(partial: "infowindow", locals: { car: @car })
+                lng: @car.longitude,
+                infoWindow: render_to_string(partial: "infowindow", locals: { car: @car }),
+                image_url: helpers.asset_url('flag.svg')
                ]
   end
 
