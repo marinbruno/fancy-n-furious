@@ -1,12 +1,18 @@
-<h1>My bookings</h1>
-<ul>
-<% @bookings.each do |book| %>
-  <li>
-    Start date: <%= book.start_date %>
-    End date: <%= book.end_date %>
-    Car: <%= link_to book.car.model, car_path(book.car_id) %>
-  </li>
-<% end %>
-</ul>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h1>My bookings</h1>
+      <ul>
+      <% @bookings.each do |book| %>
+        <li>
+          Start date: <%= book.start_date %>
+          End date: <%= book.end_date %>
+          Car: <%= link_to book.car.model, car_path(book.car_id) %>
+        </li>
+      <% end %>
+      </ul>
 
-<%= link_to 'Back', profile_path(@user), class: 'btn btn-primary' %>
+      <%= link_to 'Back', profile_path(@user), class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

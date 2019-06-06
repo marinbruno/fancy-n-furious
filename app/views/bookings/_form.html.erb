@@ -1,18 +1,25 @@
-<%= simple_form_for([car, booking]) do |f| %>
-  <% if booking.errors.any? %>
-    <div class="errors-container">
-      <ul>
-        <% booking.errors.full_mesages.each do |message| %>
-          <li><%= message %></li>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <%= simple_form_for([car, booking]) do |f| %>
+        <% if booking.errors.any? %>
+          <div class="errors-container">
+            <ul>
+              <% booking.errors.full_mesages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+        <%= f.input :start_date, html5: true, as: :date, label: "Pickup Date" %>
+        <%= f.input :end_date, html5: true, as: :date, label: "Return Date" %>
+        <%= f.input :total_amount, disabled: true, input_html: {value: '1'}, label: "Total Due Amount" %>
+        <div class="d-flex justify-content-around">
+          <%= f.button :submit, "Book", class: "btn btn-success" %>
+          <%= link_to 'Back', cars_path, class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+      <input id="daily_amount" type="text" value=<%= car.daily_amount %> hidden>
     </div>
-  <% end %>
-  <%= f.input :start_date, as: :date %>
-  <%= f.input :end_date, as: :date %>
-  <%= f.input :total_amount, disabled: true, input_html: {value: '1'}%>
-  <%= f.button :submit, class: "btn btn-success" %>
-  <%= link_to 'Back', cars_path, class: 'btn btn-primary' %>
-<% end %>
-<input id="daily_amount" type="text" value=<%= car.daily_amount %> hidden>
-
+  </div>
+</div>
