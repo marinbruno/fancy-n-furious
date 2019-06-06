@@ -12,9 +12,15 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  opacity: 0.5;
+}
+
+.navbar-lewagon .navbar-brand img:hover{
+  opacity: 1.0;
 }
 
 .navbar-lewagon .navbar-collapse .nav-item{
   padding-left:10px;
   padding-right:10px;
 }
+
