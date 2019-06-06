@@ -17,14 +17,14 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<div class="d-flex justify-content-between">
-  <%= link_to 'Back', cars_path, class: 'btn btn-primary' %>
-  <%= link_to 'Edit', edit_car_path(@car.id), class: 'btn btn-warning' %>
+<div class="d-flex mt-3">
+  <%= link_to 'Back', cars_path, class: 'mr-3 btn btn-primary' %>
+  <%= link_to 'Edit', edit_car_path(@car.id), class: 'mr-3 btn btn-warning' %>
   <% if @user.car_wishes.where(car: @car).size > 0 %>
-    <%= link_to 'Remove from Wish', car_wish_path(id: @user.car_wishes.where(car: @car).first), method: :delete, class: 'btn btn-primary' %>
+    <%= link_to 'Remove from Wish', car_wish_path(id: @user.car_wishes.where(car: @car).first), method: :delete, class: 'mr-3 btn btn-primary' %>
   <% else %>
-    <%= link_to 'WishList', car_wishes_path(car_id: @car.id), method: :post, class: 'btn btn-primary' %>
+    <%= link_to 'WishList', car_wishes_path(car_id: @car.id), method: :post, class: 'mr-3 btn btn-primary' %>
   <% end %>
-  <%= link_to 'Book', new_car_booking_path(@car), class: 'btn btn-primary' %>
+  <%= link_to 'Book', new_car_booking_path(@car), class: 'mr-3 btn btn-primary' %>
   <%= link_to 'Delete', car_path(@car), method: :delete, class: 'btn btn-danger' %>
 </div>
