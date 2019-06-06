@@ -1,31 +1,35 @@
 <div class="container">
-  <%= simple_form_for(@car) do |f| %>
-    <% if @car.errors.any? %>
-      <div class="errors-container">
-        <ul>
-          <% @car.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <%= f.error_notification %>
-    <%= f.input :model %>
-    <%= f.input :brand %>
-    <%= f.input :year %>
-    <%= f.input :car_description %>
-    <%= f.input :category, collection: %w[F1 Pimp StockCar Fantasy Cartoon LeMans] %>
-    <%= f.input :daily_amount %>
-    <%= f.input :car_location %>
-    <% unless car.photo.filename.nil? %>
-      <%= cl_image_tag car.photo, :height=>145, :width=>300, :crop=>"fill" %>
-    <% end %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.submit "Save", class: "btn btn-primary" %>
-    <%= link_to 'Back', cars_path, class: 'btn btn-primary' %>
-    <% unless @car.model.nil?  %>
-      <%= link_to 'Delete', car_path(@car), method: :delete, class: 'btn btn-danger' %>
-    <% end %>
-  <% end %>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <%= simple_form_for(@car) do |f| %>
+        <% if @car.errors.any? %>
+          <div class="errors-container">
+            <ul>
+              <% @car.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%= f.error_notification %>
+        <%= f.input :model %>
+        <%= f.input :brand %>
+        <%= f.input :year %>
+        <%= f.input :car_description %>
+        <%= f.input :category, collection: %w[F1 Pimp StockCar Fantasy Cartoon LeMans] %>
+        <%= f.input :daily_amount %>
+        <%= f.input :car_location %>
+        <% unless car.photo.filename.nil? %>
+          <%= cl_image_tag car.photo, :height=>145, :width=>300, :crop=>"fill" %>
+        <% end %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.submit "Save", class: "btn btn-primary" %>
+        <%= link_to 'Back', cars_path, class: 'btn btn-primary' %>
+        <% unless @car.model.nil?  %>
+          <%= link_to 'Delete', car_path(@car), method: :delete, class: 'btn btn-danger' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
