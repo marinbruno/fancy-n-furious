@@ -6,14 +6,13 @@
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
-<h1>Fancy n Furious</h1>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item dropdown">
       <% if current_user.nil? %>
         <li class="nav-item active">
-          <%= link_to "Sign in", new_user_session_path,class: "btn btn-primary" %>
-          <%= link_to "Register", new_user_registration_path %>
+          <%= link_to "Sign in", new_user_session_path,class: "btn btn-light" %>
+          <%= link_to "Register", new_user_registration_path, class: "btn btn-light" %>
         </li>
       <% else %>
         <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: "42" %>

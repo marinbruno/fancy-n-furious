@@ -1,6 +1,4 @@
 
-
-
 <div class="d-flex">
   <div>
     <% unless current_user.photo.filename.nil? %>
@@ -33,7 +31,7 @@
           <%= link_to wish.car.model, car_path(wish.car_id), class: "list-group-item list-group-item-action" %>
         <% end %>
       <% else %>
-        <p>No wishes :(</p>
+        <p class="list-group-item">No wishes :(</p>
       <% end %>
     </div>
   </div>
@@ -51,7 +49,7 @@
             </li>
           <% end %>
         <% else %>
-          <p>No bookings :(</p>
+          <li class="list-group-item"> No bookings :(</li>
         <% end %>
     </ul>
   </div>
@@ -65,7 +63,7 @@
           <%= link_to car.model, car_path(car.id), class: "list-group-item list-group-item-action" %>
         <% end %>
       <% else %>
-        <p>No Cars :(</p>
+        <p class="list-group-item">No Cars :(</p>
       <% end %>
     </div>
   </div>
