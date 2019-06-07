@@ -1,3 +1,5 @@
+<div class="container">
+  <div class="col-12 mt-3">
 <%= form_tag cars_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
@@ -28,4 +30,5 @@
 </div>
 
 <%= link_to 'Add your car!', new_car_path, class: "mt-3 btn btn-secondary btn-block shadow" %>
-
+</div>
+</div>
