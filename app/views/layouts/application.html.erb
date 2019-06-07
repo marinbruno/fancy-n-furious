@@ -13,11 +13,8 @@
     <header>
       <%= render 'layouts/navbar' %>
     </header>
-    <div class="container">
-      <div class="col-12 mt-3">
         <%= yield %>
-      </div>
-    </div>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= javascript_include_tag 'application' %>

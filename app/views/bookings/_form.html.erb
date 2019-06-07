@@ -1,11 +1,13 @@
 <div class="container">
+  <div class="col-12 mt-3">
+<div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <%= simple_form_for([car, booking]) do |f| %>
         <% if booking.errors.any? %>
           <div class="errors-container">
             <ul>
-              <% booking.errors.full_mesages.each do |message| %>
+              <% booking.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
               <% end %>
             </ul>
@@ -22,4 +24,6 @@
       <input id="daily_amount" type="text" value=<%= car.daily_amount %> hidden>
     </div>
   </div>
+</div>
+</div>
 </div>

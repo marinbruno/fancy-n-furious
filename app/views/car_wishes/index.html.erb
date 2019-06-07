@@ -1,4 +1,6 @@
 <div class="container">
+  <div class="col-12 mt-3">
+<div class="container">
   <h1>Your Dream Cars:</h1>
   <% @car_wishes.each do |car| %>
     <li>
@@ -6,4 +8,6 @@
       <%= link_to "Remove from Wishlist", user_car_wish(car.id) %>
     </li>
   <% end %>
+</div>
+</div>
 </div>
