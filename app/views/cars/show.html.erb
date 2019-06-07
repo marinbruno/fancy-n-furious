@@ -25,6 +25,9 @@
     <div>
       <p> Daily Amount: <%= @car.daily_amount %></p>
     </div>
+    <div>
+      <p> Owner: <%= "#{@car.user.first_name} #{@car.user.last_name}" %></p>
+    </div>
   </div>
   <p> Location: <%= @car.car_location %></p>
 </div>
