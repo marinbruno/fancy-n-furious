@@ -25,7 +25,7 @@
   <!-- Wish -->
   <div class="flex-fill">
     <div class="list-group">
-      <h6 class="list-group-item list-group-item-action active">Wish List:</h6>
+      <h6 class="list-group-item list-group-item-action active">Wish List</h6>
       <% if @user.car_wishes.size > 0 %>
         <% @user.car_wishes.each do |wish| %>
           <%= link_to wish.car.model, car_path(wish.car_id), class: "list-group-item list-group-item-action" %>
@@ -39,7 +39,7 @@
   <!-- bookings -->
   <div class = "flex-fill ml-3">
     <ul class="list-group" >
-      <h6 class="list-group-item list-group-item-action active">Bookings:</h6>
+      <h6 class="list-group-item list-group-item-action active">Bookings</h6>
         <% if @user.bookings.size > 0 %>
           <% @user.bookings.each do |book| %>
             <li class="list-group-item">
@@ -57,7 +57,7 @@
   <!-- My Cars -->
   <div class="flex-fill ml-3">
     <div class="list-group">
-      <h6 class="list-group-item list-group-item-action active">My cars:</h6>
+      <h6 class="list-group-item list-group-item-action active">My cars</h6>
       <% if @user.cars.size > 0 %>
         <% @user.cars.each do |car| %>
           <%= link_to car.model, car_path(car.id), class: "list-group-item list-group-item-action" %>

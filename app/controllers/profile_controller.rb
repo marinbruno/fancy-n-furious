@@ -1,6 +1,10 @@
 class ProfileController < ApplicationController
   def show
-    @user = current_user
+    if user_check
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
 
     @markers = [lat: @user.latitude,
                 lng: @user.longitude,
@@ -10,12 +14,28 @@ class ProfileController < ApplicationController
   end
 
   def wishes
-    @wishes = current_user.car_wishes
-    @user = current_user
+    if user_check
+      @user = User.find(params[:id])
+      @wishes = @user.car_wishes
+    else
+      @wishes = current_user.car_wishes
+      @user = current_user
+    end
   end
 
   def bookings
-    @bookings = current_user.bookings
-    @user = current_user
+    if user_check
+      @user = User.find(params[:id])
+      @bookings = @user.bookings
+    else
+      @bookings = current_user.bookings
+      @user = current_user
+    end
+  end
+
+  private
+
+  def user_check
+    User.find(params[:id])
   end
 end
