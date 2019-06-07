@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-12 mt-3">
 <div class="card-category parent" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @car.photo %>)">
-  <%= @car.brand + " " + @car.model %>
+  <h1><%= @car.brand + " " + @car.model %></h1>
 </div>
 <div class="child">
   <% unless current_user.nil? %>
