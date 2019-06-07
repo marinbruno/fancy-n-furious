@@ -1,6 +1,6 @@
 <div class="container">
       <div class="col-12 mt-3">
-<div class="d-flex">
+<div class="d-flex mb-3">
   <div>
     <% unless current_user.photo.filename.nil? %>
       <%= cl_image_tag @user.photo, height: 200, width: 200, crop: "fill", class: "rounded-lg" %>
@@ -8,9 +8,9 @@
   </div>
   <div class="ml-3">
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    <h4> Email: <%= @user.email %> </h4>
-    <h4> Address: <%= @user.address %> </h4>
-    <h5>Description: <%= @user.user_description %> </h5>
+    <p> <strong>Email:</strong> <%= @user.email %> </p>
+    <p> <strong>Address:</strong> <%= @user.address %> </p>
+    <p> <strong>Description:</strong> <%= @user.user_description %> </p>
   </div>
 </div>
 

@@ -15,6 +15,39 @@
 @import "mapbox-gl/dist/mapbox-gl.css";
 @import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700|IBM+Plex+Serif&display=swap');
+
 body {
   background-color: #e7e6e5;
+  font-family: 'IBM Plex Serif', serif;
+}
+
+body h1 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+}
+
+body h2 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+}
+
+body h3 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+}
+
+body h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+}
+
+body h5 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+}
+
+body h6 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
 }
