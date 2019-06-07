@@ -33,13 +33,18 @@ users_array = []
 end
 
 cars_array = []
-5.times do
+15.times do
   puts 'Creating a car...'
+  car_description_array = Faker::Vehicle.standard_specs
+  car_description = ""
+  car_description_array.each do |sentence|
+    car_description += "#{sentence}, "
+  end
   car_hash = {
     model: Faker::Vehicle.model,
     brand: Faker::Vehicle.manufacture,
     year: Faker::Vehicle.year,
-    car_description: Faker::Vehicle.standard_specs,
+    car_description: car_description,
     car_location: Faker::Address.city,
     category: Faker::Vehicle.car_type,
     daily_amount: [50, 75, 100, 125, 150].sample,

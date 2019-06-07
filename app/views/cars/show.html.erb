@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-12 mt-3">
 <div class="card-category parent" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @car.photo %>)">
-  <%= @car.model %>
+  <%= @car.brand + " " + @car.model %>
 </div>
 <div class="child">
   <% unless current_user.nil? %>
@@ -14,23 +14,19 @@
   <% end %>
 </div>
 <div  class="mt-3">
-  <h3> Brand: <%= @car.brand %></h3>
-  <p> Description: <%= @car.car_description %></p>
   <div class="d-flex justify-content-between">
-    <div>
-      <p> Year: <%= @car.year %></p>
+    <div class="desc-container col-8">
+      <h5><strong>Description:</strong></h5>
+      <p><%= @car.car_description %></p>
+      <p><strong>Location:</strong> <%= @car.car_location %></p>
     </div>
-    <div>
-      <p> Category: <%= @car.category %></p>
-    </div>
-    <div>
-      <p> Daily Amount: <%= @car.daily_amount %></p>
-    </div>
-    <div>
-      <p> Owner: <%= "#{@car.user.first_name} #{@car.user.last_name}" %></p>
+    <div class="info-container col-4">
+      <p> <strong>Year:</strong> <%= @car.year %></p>
+      <p> <strong>Category:</strong> <%= @car.category %></p>
+      <p> <strong>Daily Amount:</strong> $<%= @car.daily_amount %></p>
+      <p> <strong>Owner:</strong> <%= link_to "#{@car.user.first_name} #{@car.user.last_name}", profile_path(@car.user) %></p>
     </div>
   </div>
-  <p> Location: <%= @car.car_location %></p>
 </div>
 
 <div
