@@ -1,8 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= link_to cars_path, class: "navbar-brand" do %>
   <%= image_tag "logo.jpg", width: "50", height: "50"  %>
 <% end %>
-
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -15,7 +14,7 @@
           <%= link_to "Register", new_user_registration_path, class: "btn btn-light" %>
         </li>
       <% else %>
-        <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: "42" %>
+        <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: "40" %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
